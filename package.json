@@ -1,0 +1,40 @@
+{
+  "name": "nextor",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@codemirror/lang-css": "^6.2.1",
+    "@codemirror/lang-html": "^6.4.6",
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-markdown": "^6.2.2",
+    "@codemirror/lang-rust": "^6.0.1",
+    "@tauri-apps/api": "^1.5.1",
+    "add": "^2.0.6",
+    "cm6-theme-material-dark": "^0.2.0",
+    "codemirror": "^6.0.1",
+    "nanoid": "^5.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remixicon": "^3.5.0",
+    "yarn": "^1.22.21"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.6",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.4"
+  }
+}
