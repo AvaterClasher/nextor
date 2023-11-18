@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,jsx,css,scss,rs}\""
   },
   "dependencies": {
     "@codemirror/lang-css": "^6.0.0",
@@ -33,6 +34,7 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "prettier": "^3.1.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.2"
   }

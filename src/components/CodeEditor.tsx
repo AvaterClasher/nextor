@@ -17,21 +17,20 @@ interface Props {
 }
 
 export default function CodeEditor({ id, active }: Props) {
-  const isRendered = useRef(0)
-  const editorId = useMemo(() => nanoid(), [])
-  const visible = active ? '' : 'hidden'
-  const editorRef = useRef<EditorView | null>(null)
+  const isRendered = useRef(0);
+  const editorId = useMemo(() => nanoid(), []);
+  const visible = active ? "" : "hidden";
+  const editorRef = useRef<EditorView | null>(null);
 
   const updateEditorContent = async (id: string) => {
     const file = getFileObject(id);
-    const content = await readFile(file.path)
+    const content = await readFile(file.path);
 
-    fillContentInEditor(content)
-
-  }
+    fillContentInEditor(content);
+  };
 
   const fillContentInEditor = (content: string) => {
-    const elem = document.getElementById(editorId)
+    const elem = document.getElementById(editorId);
 
     if (elem && isRendered.current === 0) {
       isRendered.current = 1;
@@ -39,36 +38,48 @@ export default function CodeEditor({ id, active }: Props) {
         doc: content,
         extensions: [
           basicSetup,
-          javascript(), markdown(), html(), css(), json(), rust(),
-          materialDark
+          javascript(),
+          markdown(),
+          html(),
+          css(),
+          json(),
+          rust(),
+          materialDark,
         ],
-        parent: elem
-      })
+        parent: elem,
+      });
     }
-  }
+  };
 
   const onSave = async () => {
     if (!editorRef.current) return;
 
     const content = editorRef.current.state.doc.toString();
-    const file = getFileObject(id)
+    const file = getFileObject(id);
 
-    writeFile(file.path, content)
-  }
+    writeFile(file.path, content);
+  };
 
   useEffect(() => {
-    updateEditorContent(id)
-  }, [id])
+    updateEditorContent(id);
+  }, [id]);
 
-  return <main className={`w-full overflow-y-auto ${visible}`} style={{ height: 'calc(100vh - 40px)' }}>
-    <div id={editorId} tabIndex={-1} onKeyUp={(ev) => {
-      if (ev.ctrlKey && ev.key === 's') {
-        ev.preventDefault()
-        ev.stopPropagation()
-        onSave()
-      }
-    }}></div>
-
-  </main>
-
+  return (
+    <main
+      className={`w-full overflow-y-auto ${visible}`}
+      style={{ height: "calc(100vh - 40px)" }}
+    >
+      <div
+        id={editorId}
+        tabIndex={-1}
+        onKeyUp={(ev) => {
+          if (ev.ctrlKey && ev.key === "s") {
+            ev.preventDefault();
+            ev.stopPropagation();
+            onSave();
+          }
+        }}
+      ></div>
+    </main>
+  );
 }
