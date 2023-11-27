@@ -27,10 +27,5 @@ To get started with Nextor, follow these steps:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Release History
 
--   v0.1.0 (2023-11-18): Initial release.
 
-## Acknowledgments
-
--   The Nextor team acknowledges the contributions of all developers who have helped make this project a reality.
